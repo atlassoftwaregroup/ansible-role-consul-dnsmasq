@@ -1,0 +1,6 @@
+---
+# handlers file for consul-dnsmasq
+- name: restart dnsmasq
+  service:
+    name: dnsmasq
+    state: restarted

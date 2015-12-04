@@ -1,0 +1,18 @@
+---
+# tasks file for consul-dnsmasq
+- name: install packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - dnsmasq
+- name: copies over dnsmasq configs
+  synchronize:
+    src: "files/dnsmasq/{{ ec2_tag_Name }}/"
+    dest: "/etc/dnsmasq.d"
+    mode: push
+    delete: true
+    recursive: true
+    compress: true
+  notify:
+    - restart dnsmasq
