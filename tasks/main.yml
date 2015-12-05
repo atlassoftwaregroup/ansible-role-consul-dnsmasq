@@ -8,7 +8,7 @@
     - dnsmasq
 - name: copies over dnsmasq configs
   synchronize:
-    src: "files/dnsmasq/{{ ec2_tag_Name }}/"
+    src: "files/dnsmasq/"
     dest: "/etc/dnsmasq.d"
     mode: push
     delete: true
